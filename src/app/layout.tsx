@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
@@ -17,8 +17,18 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "YosSell - L'univers du e-commerce dans votre poche",
-  description: "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur. L'application de commerce révolutionnaire en Tunisie.",
-  keywords: ["YosSell", "e-commerce", "Tunisie", "achat", "vente", "location", "échange", "services"],
+  description:
+    "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur. L'application de commerce révolutionnaire en Tunisie.",
+  keywords: [
+    "YosSell",
+    "e-commerce",
+    "Tunisie",
+    "achat",
+    "vente",
+    "location",
+    "échange",
+    "services",
+  ],
   authors: [{ name: "YosSell Team" }],
   creator: "YosSell",
   publisher: "YosSell",
@@ -29,7 +39,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "YosSell - L'univers du e-commerce dans votre poche",
-    description: "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur.",
+    description:
+      "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur.",
     siteName: "YosSell",
     images: [
       {
@@ -45,7 +56,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "YosSell - L'univers du e-commerce dans votre poche",
-    description: "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur.",
+    description:
+      "Achetez, vendez, louez, donnez, échangez, demandez des services... même votre temps trouve preneur.",
     images: ["/assets/logo.jpeg"],
   },
   robots: {
@@ -63,18 +75,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <link rel="icon" href="/assets/logo.jpeg" />
+        {/* Favicon */}
+        <link rel="icon" href="/assets/logo.jpeg" sizes="any" />
+
+        {/* For iOS/Android PWA */}
         <link rel="apple-touch-icon" href="/assets/logo.jpeg" />
+
+        {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#437A45" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        {/* Viewport */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
       </head>
-      <body className="antialiased" suppressHydrationWarning={true}>
+
+      <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>
