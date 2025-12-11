@@ -93,15 +93,15 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                 </span>
               ))}
             </h1>
-            <p 
-              className="text-green-600 italic opacity-0"
-              style={{
-                animation: 'fadeInUp 0.4s ease-out forwards',
-                animationDelay: '500ms' // After all letters appear
-              }}
-            >
-              L'univers du e-commerce dans votre poche.
-            </p>
+           <p 
+  className="text-green-600 italic opacity-0"
+  style={{
+    animation: 'fadeInUp 0.4s ease-out forwards',
+    animationDelay: '500ms'
+  }}
+>
+  L&apos;univers du e-commerce dans votre poche.
+</p>
           </div>
         )}
       </div>
