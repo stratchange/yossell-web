@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // add other options here
+  output: 'export', // 👈 this replaces `next export`
 };
 
 export default nextConfig;
