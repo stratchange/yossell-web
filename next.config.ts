@@ -1,6 +1,8 @@
-import { defineConfig } from "next";
+import type { NextConfig } from 'next';
 
-export default defineConfig({
-  output: "export", // enables static export
-  // other config...
-});
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  // add other options here
+};
+
+export default nextConfig;
