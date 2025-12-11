@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import { defineConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = defineConfig({
+  output: "export", // <- enables static export
+});
 
 export default nextConfig;
