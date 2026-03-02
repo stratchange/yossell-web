@@ -25,11 +25,11 @@ interface FeatureCardProps {
   popupText?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ 
-  icon, 
-  title, 
-  description, 
-  color, 
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  icon,
+  title,
+  description,
+  color,
   mockupImage,
   mockupAlt,
   isReversed = false,
@@ -86,7 +86,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   }, [isReversed]);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className={`grid lg:grid-cols-2 gap-12 items-center py-20 ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}
     >
@@ -97,15 +97,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             {icon}
           </div>
         </div>
-        
+
         <h3 className="text-3xl lg:text-4xl font-bold text-gray-900">
           {title}
         </h3>
-        
+
         <p className="text-lg text-gray-600 leading-relaxed">
           {description}
         </p>
-        
+
         {popupText ? (
           <button
             onClick={() => setShowPopup(true)}
@@ -126,7 +126,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           </a>
         )}
 
-        {/* Popup Modal (portail vers body pour centrage viewport) */}
+        {/* Popup Modal */}
         {popupText && showPopup && typeof document !== "undefined" && createPortal(
           <div
             className="fixed inset-0 z-[9999] flex items-center justify-center"
@@ -164,8 +164,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <div className={`relative mx-auto ${
           mockupImage.includes('accc-portrait')
             ? 'max-w-xs'
-            : mockupImage.includes('c-portrait') 
-            ? 'max-w-sm md:max-w-md' 
+            : mockupImage.includes('c-portrait')
+            ? 'max-w-sm md:max-w-md'
             : 'max-w-xs'
         }`}>
           <Image
@@ -177,12 +177,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             sizes="(max-width: 768px) 80vw, (max-width: 1024px) 40vw, 400px"
             loading="lazy"
           />
-          
+
           {/* Glow Effect */}
           <div className={`absolute inset-0 bg-gradient-to-br ${color} ${
             color.includes('pink') || color.includes('rose') ? 'opacity-5' : 'opacity-10'
           } rounded-[2.5rem] blur-xl scale-110`} />
-          
+
           {/* Floating Elements */}
           <div className="absolute -top-4 -right-4 w-8 h-8 bg-brand-light-gold/60 rounded-full animate-bounce" />
           <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-brand-green/60 rounded-full animate-pulse" />
@@ -273,7 +273,7 @@ const Features: React.FC = () => {
   return (
     <section ref={sectionRef} id="fonctionnalites" className="bg-white py-20 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
-        
+
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 ref={titleRef} className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
@@ -281,11 +281,11 @@ const Features: React.FC = () => {
           </h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             <p ref={subtitleRef} className="text-xl text-gray-600 leading-relaxed">
-              Découvrez les fonctionnalités qui font de <span className="font-bold text-brand-green">YosSell</span> la plateforme 
+              Découvrez les fonctionnalités qui font de <span className="font-bold text-brand-green">YosSell</span> la plateforme
               de e-commerce la plus innovante et sécurisée.
             </p>
             <p ref={subtitle2Ref} className="text-xl text-gray-600 leading-relaxed">
-              Oubliez les annonces classiques ! Bienvenue dans l'écosystème <span className="font-bold text-brand-green">YosSell</span> : une marketplace intelligente et sécurisée où la force de la communauté booste votre business au quotidien.
+              Oubliez les annonces classiques ! Bienvenue dans l&apos;écosystème <span className="font-bold text-brand-green">YosSell</span> : une marketplace intelligente et sécurisée où la force de la communauté booste votre business au quotidien.
             </p>
           </div>
         </div>
@@ -295,16 +295,7 @@ const Features: React.FC = () => {
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              color={feature.color}
-              mockupImage={feature.mockupImage}
-              mockupAlt={feature.mockupAlt}
-              isReversed={feature.isReversed}
-              buttonLabel={feature.buttonLabel}
-              buttonAriaLabel={feature.buttonAriaLabel}
-              popupText={feature.popupText}
+              {...feature}
             />
           ))}
         </div>
@@ -315,14 +306,14 @@ const Features: React.FC = () => {
         {/* Call to Action */}
         <div className="text-center -mt-20 py-16 bg-gradient-to-r from-brand-green/5 to-brand-light-gold/5 rounded-3xl relative z-10">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Prêt à Rejoindre l'Aventure ?
+            Prêt à Rejoindre l&apos;Aventure ?
           </h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Rejoignez des milliers d&apos;utilisateurs qui ont déjà adopté 
+            Rejoignez des milliers d&apos;utilisateurs qui ont déjà adopté
             la nouvelle façon de faire du commerce.
           </p>
           <div className="flex justify-center">
-            <Link 
+            <Link
               href="/#telecharger"
               className="bg-brand-green text-white px-10 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 hover:shadow-xl transform hover:scale-105 inline-flex items-center justify-center space-x-2"
             >
